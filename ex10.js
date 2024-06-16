@@ -60,45 +60,28 @@ downSecond.addEventListener('click', () => {
     progress.style.width = (currentTime / totalTime) * 100 + '%';
 });
 
-playToggle.addEventListener('click', () => {
-    iTag.classList.contains('fa-play') ? iTag.classList.replace('fa-play', 'fa-pause') : iTag.classList.replace('fa-pause', 'fa-play');
-    play();
-});
 
 audio.addEventListener('timeupdate', () => {
     const currentTime = audio.currentTime;
     const rate = (currentTime / totalTime) * 100;
     time.textContent = changeSecondToTime(currentTime);
     progress.style.width = rate + '%';
+    if (rate === 100) {
+        iTag.classList.replace('fa-pause', 'fa-play');
+        progress.style.width = 0 + '%';
+        audio.currentTime = 0;
+    }
 });
 
-const play = () => {
+playToggle.addEventListener('click', () => {
     if (iTag.classList.contains('fa-play')) {
-        audio.pause();
-    } else {
+        iTag.classList.replace('fa-play', 'fa-pause');
         audio.play();
+    } else {
+        iTag.classList.replace('fa-pause', 'fa-play');
+        audio.pause();
     }
-    const interval = setInterval(() => {
-        if (audio.paused) {
-            clearInterval(interval);
-            return;
-        }
-
-        const currentTime = audio.currentTime;
-        const rate = (currentTime / totalTime) * 100;
-        time.textContent = changeSecondToTime(currentTime);
-        audio.currentTime = currentTime;
-        time.textContent = changeSecondToTime(currentTime);
-        progress.style.width = rate + '%';
-        if (currentTime >= totalTime || iTag.classList.contains('fa-play')) {
-            clearInterval(interval);
-            iTag.classList.replace('fa-pause', 'fa-play');
-            progress.style.width = 0 + '%';
-            time.textContent = changeSecondToTime(0);
-            audio.currentTime = 0;
-        }
-    }, 1000);
-};
+});
 
 progressBar.addEventListener('mousedown', (e) => {
     progressBarRect = progressBar.getBoundingClientRect();

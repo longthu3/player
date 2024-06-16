@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <div style="display: flex; flex-direction: column; margin-top: 20px;">
+        <span id="play" style="text-align: center;">
+            <i class="fa-solid fa-play"></i>
+        </span>
+        <div style="display: flex; align-items: center; padding: 0 20px; gap: 20px;">
+            <span id="start">00:00</span>
+            <span id="down-10" style="cursor: pointer;">-10s</span>
+            <div class="progress-bar">
+                <div class="progress">
+                    <span class="dots"></span>
+                    <div class="tooltip" id="tooltip"></div>
+                </div>
+            </div>
+            <span id="move-10" style="cursor: pointer;">+10s</span>
+            <span id="end"></span>
+        </div>
+        <audio src="./audio/01. this is what falling in love feels like (side A).mp3" id="audio"></audio>
+    </div>
+
+    <script src="./ex10.js"></script>
+</body>
+
+</html>

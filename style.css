@@ -1,0 +1,42 @@
+.progress-bar {
+  width: 80%;
+  margin: 30px auto;
+  height: 10px;
+  background: gray;
+  position: relative;
+  cursor: pointer;
+}
+
+.progress-bar:hover {
+  opacity: 0.6;
+}
+
+.progress-bar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: red;
+  width: 0%;
+}
+
+.progress-bar .progress span {
+  position: absolute;
+  right: 0;
+  top: -1px;
+  translate: 50% 0;
+  width: 14px;
+  height: 14px;
+  background-color: blueviolet;
+  border-radius: 50%;
+}
+
+.tooltip {
+  position: absolute;
+  background-color: #000;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-size: 12px;
+  display: none;
+}

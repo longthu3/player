@@ -40,3 +40,9 @@
   font-size: 12px;
   display: none;
 }
+
+#lyrics {
+  font-size: 24px;
+  color: blue;
+  margin-top: 20px;
+}
